@@ -5,6 +5,10 @@ const dbase = {
         putInfo:(name,username,password,cb)=>{
             let q = `insert into users(name,username,password) values('${name}','${username}','${password}') returning id`;
             dbase.query(q,cb);
+        },
+        getInfo:(cb)=>{
+            let q = `select * from users`;
+            dbase.query(cb);
         }
     },
     query: function(q, cb) {

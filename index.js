@@ -21,6 +21,12 @@ app.post('/register',(req,res)=>{
     });
 });
 
+app.get('/users',(req,res)=>{
+    dbase.users.getInfo((err,result)=>{
+        res.send(result);
+    });
+});
+
 app.listen(9909,()=>{
     console.log("App listening on port 9909");
 });
