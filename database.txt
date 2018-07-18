@@ -1,0 +1,13 @@
+
+create table activity(
+  id serial primary key,
+  users integer references users(id),
+  name text
+);
+
+create table users (
+    id serial primary key,
+    name varchar(30),
+    username varchar(30),
+    password text
+);
