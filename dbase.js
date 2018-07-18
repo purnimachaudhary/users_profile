@@ -8,7 +8,7 @@ const dbase = {
         },
         getInfo:(cb)=>{
             let q = `select * from users`;
-            dbase.query(cb);
+            dbase.query(q,cb);
         }
     },
     query: function(q, cb) {
