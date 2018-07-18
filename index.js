@@ -8,6 +8,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.get('/',(req,res)=>{
+    res.send('This is main page');
+});
+
 app.post('/register',(req,res)=>{
     let name = req.body.name;
     let username = req.body.username;
@@ -26,6 +30,8 @@ app.get('/users',(req,res)=>{
         res.send(result);
     });
 });
+
+
 
 app.listen(process.env.PORT || 9909,()=>{
     console.log("App listening on port 9909");
