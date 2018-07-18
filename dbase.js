@@ -1,20 +1,19 @@
 const pg = require('pg');
 const db_conn = 'postgres://postgres:dazzle@127.0.0.1/dazzle';
-​
 const dbase = {
-  users:{
-    putInfo:(name,username,password,cb)=>{
-      let q = `insert into users(name,username,password) values('${name}','${username}','${password}') returning id`;
-      dbase.query(q,cb);
-    }
-  },
-	query: (q, cb) => {
+    users:{
+        putInfo:(name,username,password,cb)=>{
+            let q = `insert into users(name,username,password) values('${name}','${username}','${password}') returning id`;
+            dbase.query(q,cb);
+        }
+    },
+    query: function(q, cb) {
 		var client = new pg.Client(db_conn);
-		client.connect((err) => {
+		client.connect(function(err) {
 			if (err) {
 				cb(err, 0);
 			} else {
-				client.query(q, (err, result) => {
+				client.query(q, function(err, result) {
 					if (err) {
 						console.log('ERROR: ' + err + ' For Query : ' + q);
 					} else {
@@ -28,9 +27,9 @@ const dbase = {
 				});
 			}
 		});
-​
+
 		client.on('drain', client.end.bind(client));
 	}
 };
-​
+
 module.exports = dbase;
