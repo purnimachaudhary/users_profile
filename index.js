@@ -27,6 +27,6 @@ app.get('/users',(req,res)=>{
     });
 });
 
-app.listen(9909,()=>{
+app.listen(process.env.PORT || 9909,()=>{
     console.log("App listening on port 9909");
 });
