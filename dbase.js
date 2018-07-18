@@ -1,5 +1,5 @@
 const pg = require('pg');
-const db_conn = 'postgres://postgres:dazzle@127.0.0.1/dazzle';
+const db_conn = 'postgres://vplspdclbaxiln:ebf62c833da579a5601e2486e978bb8f0b261aa4c270be199bccd1eea75d4b4f@ec2-54-83-59-239.compute-1.amazonaws.com:5432/d68371kb0meho';
 const dbase = {
     users:{
         putInfo:(name,username,password,cb)=>{
